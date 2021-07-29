@@ -1,4 +1,4 @@
-void	*memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char		*destination;
 	const char	*source;

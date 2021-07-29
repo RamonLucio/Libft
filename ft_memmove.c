@@ -1,4 +1,4 @@
-void	*memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char		*destination;
 	const char	*source;
