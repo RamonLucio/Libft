@@ -2,15 +2,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*ptr;
-	char		character;
-	char		*return_value;
+	char	*ptr;
+	char	character;
+	char	*return_value;
 
-	ptr = s;
+	ptr = (char *) s;
 	character = (char) c;
 	return_value = NULL;
-	while (*ptr++)
+	while (*ptr)
+	{
 		if (*ptr == character)
-			return_value = (char *) ptr;
+			return_value = ptr;
+		ptr++;
+	}
+	if (*ptr == character)
+		return (ptr);
 	return (return_value);
 }
