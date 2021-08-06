@@ -2,18 +2,18 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*string;
+	char	*ptr;
 	char	character;
 
-	string = (char *) s;
+	ptr = (char *) s;
 	character = (char) c;
-	while (*string)
+	while (*ptr)
 	{
-		if (*string == character)
-			return (string);
-		string++;
+		if (*ptr == character)
+			return (ptr);
+		ptr++;
 	}
-	if (*string == character)
-		return (string);
+	if (*ptr == character)
+		return (ptr);
 	return (NULL);
 }
