@@ -1,3 +1,5 @@
+#include "libft.h"
+
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	char		*destination;
@@ -12,8 +14,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		destination++;
 	dst_len = destination - dst;
 	size = dstsize - dst_len;
-	if (n == 0)
-		return (dst_len + ft_strlen(s));
+	if (size == 0)
+		return (dst_len + ft_strlen(source));
 	while (*source++ != '\0')
 		if (size-- != 1)
 			*destination++ = *source;
