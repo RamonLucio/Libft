@@ -5,18 +5,18 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	char		*destination;
 	const char	*source;
 	size_t		destination_size;
+	size_t		ch;
 
 	destination = dst;
 	source = src;
 	destination_size = dstsize;
 	if (destination_size != 0)
 	{
-		while (--destination_size)
+		while (--destination_size != 0)
 		{
-			if (*source++ == '\0')
+			ch = (*destination++ = *source++);
+			if (ch == '\0')
 				break ;
-			else
-				(*destination++ = *source++);
 		}
 	}
 	if (destination_size == 0)
