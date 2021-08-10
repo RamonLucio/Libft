@@ -13,15 +13,13 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		needle_len = ft_strlen(needle);
 		if ((*str_haystack == '\0') || len < 1)
 			return (NULL);
-		while (ft_strncmp(str_haystack, str_needle, needle_len) != 0)
+		while (*str_haystack && needle_len < len--)
 		{
-			while (*str_haystack++ != *str_needle)
-				if ((*str_haystack == '\0') || len-- < 1)
-					return (NULL);
-			if (needle_len > len)
-				return (NULL);
+			if (ft_strncmp(str_haystack, str_needle, needle_len) == 0)
+				return ((char *) str_haystack);
+			str_haystack++;
 		}
-		str_haystack--;
+		return (NULL);
 	}
 	return ((char *) str_haystack);
 }
