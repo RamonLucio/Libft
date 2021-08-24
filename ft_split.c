@@ -1,29 +1,14 @@
 #include "libft.h"
 
-static char	*ft_chrstr(char c, const char *s)
-{
-	while (*s == c)
-	{
-		s++;
-		return ((char *) s);
-	}
-	return (0);
-}
-
 static size_t	ft_strcspn(const char *s, char c)
 {
 	size_t	span;
 
 	span = 0;
-	while (*s)
+	while (*s && (*s != c))
 	{
-		if (ft_chrstr(c, s))
-			return (span);
-		else
-		{
-			s++;
-			span++;
-		}
+		s++;
+		span++;
 	}
 	return (span);
 }
@@ -33,10 +18,10 @@ static size_t	ft_strspn(const char *s, char c)
 	size_t	span;
 
 	span = 0;
-	while (*s && ft_chrstr(c, s))
+	while (*s && (*s == c))
 	{
-		span++;
 		s++;
+		span++;
 	}
 	return (span);
 }
@@ -59,30 +44,40 @@ static size_t	tokctr(char const *s, char c)
 	return (arr_size);
 }
 
+static char	**ft_split_auxiliary(char const *s, char c, char *p, char **arr)
+{
+	char	*p_start;
+	size_t	i;
+
+	p_start = p;
+	i = 0;
+	while (*s)
+	{
+		s = p + ft_strspn(p, c);
+		p = (char *) s + ft_strcspn(s, c);
+		if (*p != '\0')
+			*p++ = '\0';
+		if (*s != '\0')
+			arr[i++] = ft_strdup(s);
+	}
+	arr[i] = NULL;
+	free(p_start);
+	return (arr);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	char	*str;
 	char	*p;
-	size_t	i;
 
 	if (!s)
 		return (NULL);
-	str = ft_strdup(s);
-	if (!str)
+	p = ft_strdup(s);
+	if (!p)
 		return (NULL);
-	p = str;
 	arr = (char **) malloc(sizeof(char *) * tokctr(s, c));
-	i = 0;
-	while (*str)
-	{
-		str = p + ft_strspn(p, c);
-		p = str + ft_strcspn(str, c);
-		if (*p != '\0')
-			*p++ = '\0';
-		if (*str != '\0')
-			arr[i++] = ft_strdup(str);
-	}
-	arr[i] = NULL;
+	if (!arr)
+		return (NULL);
+	arr = ft_split_auxiliary(s, c, p, arr);
 	return (arr);
 }
