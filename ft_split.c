@@ -31,7 +31,7 @@ static size_t	tokctr(char const *s, char c)
 	size_t	arr_size;
 
 	arr_size = 1;
-	while (*s == c)
+	while ((*s == c) && (*s != '\0'))
 		s++;
 	while (*s)
 	{
