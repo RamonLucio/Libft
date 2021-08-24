@@ -13,7 +13,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		needle_len = ft_strlen(needle);
 		if ((*str_haystack == '\0') || len < 1)
 			return (NULL);
-		while (*str_haystack && needle_len < len--)
+		while (*str_haystack && (needle_len <= len--))
 		{
 			if (ft_strncmp(str_haystack, str_needle, needle_len) == 0)
 				return ((char *) str_haystack);
