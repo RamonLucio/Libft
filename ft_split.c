@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 16:28:40 by rlucio-l          #+#    #+#             */
-/*   Updated: 2021/08/25 11:36:04 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:38:20 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	**ft_split(char const *s, char c)
 	p = ft_strdup(s);
 	if (!p)
 		return (NULL);
-	arr = (char **) malloc(sizeof(char *) * tokctr(s, c));
+	arr = (char **) malloc(sizeof(char *) * ft_tokctr(s, c));
 	if (!arr)
 		return (NULL);
 	arr = ft_split_auxiliary(s, c, p, arr);
