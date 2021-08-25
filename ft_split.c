@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 16:28:40 by rlucio-l          #+#    #+#             */
-/*   Updated: 2021/08/24 16:28:41 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:36:04 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static size_t	ft_strspn(const char *s, char c)
 	return (span);
 }
 
-static size_t	tokctr(char const *s, char c)
+static size_t	ft_tokctr(char const *s, char c)
 {
 	size_t	arr_size;
 
