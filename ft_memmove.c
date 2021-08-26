@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 16:28:27 by rlucio-l          #+#    #+#             */
-/*   Updated: 2021/08/24 16:28:28 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2021/08/26 15:54:35 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char		*destination;
 	const char	*source;
 
+	if ((!dst && !src) || !n)
+		return (dst);
 	destination = (char *) dst;
 	source = (char *) src;
 	if (destination < source)
