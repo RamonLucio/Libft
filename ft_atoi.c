@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 16:32:42 by rlucio-l          #+#    #+#             */
-/*   Updated: 2021/08/26 18:26:01 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2021/08/26 18:42:02 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,10 @@ int	ft_atoi(const char *str)
 	}
 	while (*str && ft_isdigit(*str))
 	{
-		if (result = (result * 10) + (*str - '0'))
-			str++;
-		else
-		{
-			break ;
+		result = (result * 10) + (*str - '0');
+		if (result < 0)
 			return (-1);
-		}
+		str++;
 	}
 	return (result * sign);
 }
