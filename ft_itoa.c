@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 13:58:31 by rlucio-l          #+#    #+#             */
-/*   Updated: 2021/08/25 14:42:22 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:56:47 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,34 @@ static int	ft_count_digits(int n)
 
 static char	*ft_reverse_string(char *s)
 {
-	int		i;
-	int		j;
-	char	c;
+	int		first_index;
+	int		last_index;
+	char	temp;
 
-	i = 0;
-	j = ft_strlen(s) - 1;
-	while (i < j)
+	first_index = 0;
+	last_index = ft_strlen(s) - 1;
+	while (first_index < last_index)
 	{
-		c = s[i];
-		s[i] = s[j];
-		s[j] = c;
-		i++;
-		j--;
+		temp = s[first_index];
+		s[first_index] = s[last_index];
+		s[last_index] = temp;
+		first_index++;
+		last_index--;
 	}
 	return (s);
 }
+
+/*
+** NAME
+** 		ft_itoa - convert integer to string
+** DESCRIPTION
+** 		Allocates (with malloc(3)) and returns a string
+** 		representing the integer received as an argument.
+** 		Negative numbers must be handled.
+** RETURN VALUE
+** 		The string representing the integer. NULL if the
+** 		allocation fails.
+*/
 
 char	*ft_itoa(int n)
 {
